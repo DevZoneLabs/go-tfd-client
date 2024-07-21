@@ -1,9 +1,5 @@
 package models
 
-type ModuleResponse struct {
-	Modules []Module `json:"module"`
-}
-
 type Module struct {
 	Name       string       `json:"module_name"`
 	ID         string       `json:"module_id"`

@@ -1,9 +1,5 @@
 package models
 
-type RewardResponse struct {
-	Reward []Reward `json:"reward"`
-}
-
 // Reward represents information about a reward
 type Reward struct {
 	MapID       string       `json:"map_id"`

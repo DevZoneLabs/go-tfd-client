@@ -1,6 +1,7 @@
 package tfd
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -64,18 +65,29 @@ func (c *Client) do(req *http.Request, v interface{}) error {
 
 	defer resp.Body.Close()
 
+	var buf bytes.Buffer
+	tee := io.TeeReader(resp.Body, &buf)
+
 	if resp.StatusCode != http.StatusOK {
-		body, err := io.ReadAll(resp.Body)
+		body, err := io.ReadAll(tee)
 		if err != nil {
 			return err
 		}
 		return fmt.Errorf("code: %d, body: %s", resp.StatusCode, body)
 	}
 
-	err = json.NewDecoder(resp.Body).Decode(v)
+	err = json.NewDecoder(tee).Decode(v)
 	if err != nil {
 		return err
 	}
+
+	bod, err := io.ReadAll(&buf)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Response Body:")
+	fmt.Println(string(bod[0]))
 
 	return nil
 }
