@@ -1,9 +1,6 @@
 package models
 
 // ReactorResponse represents the response object structure
-type ReactorResponse struct {
-	Reactor []Reactor `json:"reactor"`
-}
 
 // Reactor represents information about a reactor
 type Reactor struct {

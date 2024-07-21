@@ -59,7 +59,7 @@ func (c *Client) GetUserDescendant(ouid string) (*models.UserDescendant, error) 
 	return resp, nil
 }
 
-func (c *Client) GetUserWeapon(ouid string, language LanguageCode) (*models.UserWeapon, error) {
+func (c *Client) GetUserWeapons(ouid string, language LanguageCode) (*models.UserWeapon, error) {
 	query := url.Values{
 		"language_code": {language.String()},
 		"ouid":          {ouid},

@@ -1,9 +1,5 @@
 package models
 
-type WeaponResponse struct {
-	Weapons []Weapon `json:"weapon"`
-}
-
 type Weapon struct {
 	Name       string     `json:"weapon_name"`
 	ID         string     `json:"weapon_id"`

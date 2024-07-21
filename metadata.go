@@ -23,112 +23,112 @@ func (c *Client) GetDescendantsMetadata(language LanguageCode) ([]models.Descend
 	return resp, nil
 }
 
-func (c *Client) GetWeaponsMetadata(language LanguageCode) (*models.WeaponResponse, error) {
+func (c *Client) GetWeaponsMetadata(language LanguageCode) ([]models.Weapon, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/weapon.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.WeaponResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.Weapon{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetModulesMetadata(language LanguageCode) (*models.ModuleResponse, error) {
+func (c *Client) GetModulesMetadata(language LanguageCode) ([]models.Module, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/module.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.ModuleResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.Module{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetReactorsMetadata(language LanguageCode) (*models.ReactorResponse, error) {
+func (c *Client) GetReactorsMetadata(language LanguageCode) ([]models.Reactor, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/reactor.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.ReactorResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.Reactor{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetExternalComponentsMetadata(language LanguageCode) (*models.ExternalComponentResponse, error) {
+func (c *Client) GetExternalComponentsMetadata(language LanguageCode) ([]models.ExternalComponent, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/external-component.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.ExternalComponentResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.ExternalComponent{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetRewardsMetadata(language LanguageCode) (*models.RewardResponse, error) {
+func (c *Client) GetRewardsMetadata(language LanguageCode) ([]models.Reward, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/reward.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.RewardResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.Reward{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetStatsMetadata(language LanguageCode) (*models.BaseStat, error) {
+func (c *Client) GetStatsMetadata(language LanguageCode) ([]models.StatMeta, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/stat.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.BaseStat)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.StatMeta{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetVoidBattlesMetadata(language LanguageCode) (*models.VoidBattleResponse, error) {
+func (c *Client) GetVoidBattlesMetadata(language LanguageCode) ([]models.VoidBattleResponse, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/void-battle.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.VoidBattleResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.VoidBattleResponse{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
 	return resp, nil
 }
 
-func (c *Client) GetTitlesMetadata(language LanguageCode) (*models.TitleResponse, error) {
+func (c *Client) GetTitlesMetadata(language LanguageCode) ([]models.TitleResponse, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/title.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.TitleResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.TitleResponse{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
