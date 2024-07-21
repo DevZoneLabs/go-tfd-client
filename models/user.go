@@ -3,7 +3,7 @@ package models
 type AccountIdentifier struct {
 	OUID string `json:"ouid"` // OUID
 }
-
+//
 type UserBasic struct {
 	AccountIdentifier
 	UserName         string `json:"user_name"`          // Nickname
@@ -107,14 +107,4 @@ type WeaponRec struct {
 	Recommendation []Recommendation
 }
 
-type BaseStat struct {
-	ID    string  `json:"stat_id"`
-	Value float64 `json:"stat_value"`
-}
 
-type ErrorMessage struct {
-	Error struct {
-		Name    string `json:"name"`
-		Message string `json:"message"`
-	} `json:"error"`
-}
