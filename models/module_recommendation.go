@@ -1,7 +1,7 @@
 package models
 
 // ModuleRecommendationResponse represents the response object structure
-type ModuleRecommendationResponse struct {
+type ModuleRecommendation struct {
 	Descendant DescendantRecommendation `json:"descendant"`
 	Weapon     WeaponRecommendation     `json:"weapon"`
 }

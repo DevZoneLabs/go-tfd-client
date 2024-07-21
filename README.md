@@ -78,7 +78,7 @@ The client covers the following API endpoints:
 
 - GetReactorsMetadata(language LanguageCode) ([]models.Reactor, error)
 
--  GetExternalComponentsMetadata(language LanguageCode) ([]models.ExternalComponent, error)
+- GetExternalComponentsMetadata(language LanguageCode) ([]models.ExternalComponent, error)
 
 - GetRewardsMetadata(language LanguageCode) ([]models.Reward, error)
 
@@ -92,4 +92,4 @@ The client covers the following API endpoints:
 
 #### Module Recommendation
 
-- GetModuleRecommendation() (\*models.ModuleRecommendationResponse, error)
+- GetModuleRecommendation(opts ModuleRecommendationOpts) (\*models.ModuleRecommendationResponse, error)
