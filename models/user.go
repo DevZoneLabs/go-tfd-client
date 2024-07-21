@@ -88,11 +88,6 @@ type ExternalComponentAdditionalStats struct {
 	AdditionalStatsValue string `json:"additional_stat_value"` // External component random option value
 }
 
-type ModuleRecommendation struct {
-	Descendant []DescendantRec
-	Weapon     []WeaponRec
-}
-
 type DescendantRec struct {
 	DescendantID   string `json:"descendant_id"`
 	Recommendation []Recommendation
