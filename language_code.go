@@ -15,3 +15,7 @@ var LanguageCodes struct {
 	Russian           LanguageCode
 	Spanish           LanguageCode
 }
+
+func (l *LanguageCode) String() string {
+	return string(*l)
+}
