@@ -42,10 +42,11 @@ func NewClient(key string, httpClient *http.Client) *Client {
 // Query *url.Values
 
 func (c *Client) newRequest(method string, requiredAuthorization bool, path string, query *url.Values) (*http.Request, error) {
-
 	url, _ := url.Parse(baseUrl)
 	url = url.JoinPath(path)
-	url.RawQuery = query.Encode()
+	if query != nil {
+		url.RawQuery = query.Encode()
+	}
 
 	req, err := http.NewRequest(method, url.String(), nil)
 	if err != nil {
@@ -62,7 +63,6 @@ func (c *Client) newRequest(method string, requiredAuthorization bool, path stri
 }
 
 func (c *Client) do(req *http.Request, v interface{}) error {
-
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return err

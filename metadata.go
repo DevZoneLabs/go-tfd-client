@@ -10,7 +10,7 @@ const metaBasePath string = "/static/tfd/meta/"
 
 // Retrieves descendant metadata
 func (c *Client) GetDescendantsMetadata(language LanguageCode) (*models.DescendantResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/descendant.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/descendant.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -24,7 +24,7 @@ func (c *Client) GetDescendantsMetadata(language LanguageCode) (*models.Descenda
 }
 
 func (c *Client) GetWeaponsMetadata(language LanguageCode) (*models.WeaponResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/weapon.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/weapon.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func (c *Client) GetWeaponsMetadata(language LanguageCode) (*models.WeaponRespon
 }
 
 func (c *Client) GetModulesMetadata(language LanguageCode) (*models.ModuleResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/module.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/module.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func (c *Client) GetModulesMetadata(language LanguageCode) (*models.ModuleRespon
 }
 
 func (c *Client) GetReactorsMetadata(language LanguageCode) (*models.ReactorResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/reactor.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/reactor.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (c *Client) GetReactorsMetadata(language LanguageCode) (*models.ReactorResp
 }
 
 func (c *Client) GetExternalComponentsMetadata(language LanguageCode) (*models.ExternalComponentResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/external-component.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/external-component.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *Client) GetExternalComponentsMetadata(language LanguageCode) (*models.E
 }
 
 func (c *Client) GetRewardsMetadata(language LanguageCode) (*models.RewardResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/reward.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/reward.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func (c *Client) GetRewardsMetadata(language LanguageCode) (*models.RewardRespon
 }
 
 func (c *Client) GetStatsMetadata(language LanguageCode) (*models.BaseStat, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/stat.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/stat.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +108,7 @@ func (c *Client) GetStatsMetadata(language LanguageCode) (*models.BaseStat, erro
 }
 
 func (c *Client) GetVoidBattlesMetadata(language LanguageCode) (*models.VoidBattleResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/void-battle.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/void-battle.json", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func (c *Client) GetVoidBattlesMetadata(language LanguageCode) (*models.VoidBatt
 }
 
 func (c *Client) GetTitlesMetadata(language LanguageCode) (*models.TitleResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/title.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/title.json", nil)
 	if err != nil {
 		return nil, err
 	}
