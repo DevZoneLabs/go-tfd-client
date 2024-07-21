@@ -1,9 +1,5 @@
 package models
 
-type DescendantResponse struct {
-	Descendants []Descendant `json:"descendant"`
-}
-
 type Descendant struct {
 	ID       string            `json:"descendant_id"`        // Descendant identifier
 	Name     string            `json:"descendant_name"`      // Descendant name
