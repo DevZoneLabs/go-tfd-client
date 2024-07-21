@@ -31,7 +31,7 @@ func NewClient(key string, httpClient *http.Client) *Client {
 	}
 }
 
-func (c *Client) newRequest(method string, requiredAuthorization bool, path string, query *url.Values) (*http.Request, error) {
+func (c *Client) newRequest(method string, requiresAuthorization bool, path string, query *url.Values) (*http.Request, error) {
 	url, _ := url.Parse(baseUrl)
 	url = url.JoinPath(path)
 	if query != nil {
@@ -43,7 +43,7 @@ func (c *Client) newRequest(method string, requiredAuthorization bool, path stri
 		return nil, err
 	}
 
-	if requiredAuthorization {
+	if requiresAuthorization {
 		req.Header.Add("x-nxopen-api-key", c.key)
 	}
 
