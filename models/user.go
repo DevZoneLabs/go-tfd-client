@@ -3,7 +3,7 @@ package models
 type AccountIdentifier struct {
 	OUID string `json:"ouid"` // OUID
 }
-//
+
 type UserBasic struct {
 	AccountIdentifier
 	UserName         string `json:"user_name"`          // Nickname
@@ -55,7 +55,7 @@ type WeaponAdditionalStats struct {
 	AdditionalStatValue string `json:"additional_stat_value"` // Weapon random option value
 }
 
-type UserReactorInfo struct {
+type UserReactor struct {
 	AccountIdentifier
 	UserName        string                   `json:"user_name"`                // Nickname
 	ID              string                   `json:"reactor_id"`               // Reactor identifier (Refer to /meta/reactor API)
@@ -106,5 +106,3 @@ type WeaponRec struct {
 	WeaponID       string `json:"weapon_id"`
 	Recommendation []Recommendation
 }
-
-
