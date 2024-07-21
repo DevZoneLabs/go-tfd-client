@@ -10,7 +10,7 @@ const metaBasePath string = "/static/tfd/meta/"
 
 // Retrieves descendant metadata
 func (c *Client) GetDescendantsMetadata(language LanguageCode) (*models.DescendantResponse, error) {
-	req, err := c.newRequest(http.MethodGet, true, metaBasePath+language.String()+"/descendant.json", nil)
+	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/descendant.json", nil)
 	if err != nil {
 		return nil, err
 	}
