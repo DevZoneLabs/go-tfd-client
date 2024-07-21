@@ -1,5 +1,10 @@
 package models
 
+// ExternalComponentResponse represents the response structure containing external component information
+type ExternalComponentResponse struct {
+	ExternalComponents []ExternalComponent `json:"external_component"`
+}
+
 // ExternalComponent represents the information of an external component
 type ExternalComponent struct {
 	ID            string `json:"external_component_id"`             // External component identifier

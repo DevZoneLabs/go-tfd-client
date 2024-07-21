@@ -9,14 +9,14 @@ import (
 const metaBasePath string = "/static/tfd/meta/"
 
 // Retrieves descendant metadata
-func (c *Client) GetDescendantsMetadata(language LanguageCode) (*models.DescendantResponse, error) {
+func (c *Client) GetDescendantsMetadata(language LanguageCode) ([]models.Descendant, error) {
 	req, err := c.newRequest(http.MethodGet, false, metaBasePath+language.String()+"/descendant.json", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := new(models.DescendantResponse)
-	if err := c.do(req, resp); err != nil {
+	resp := []models.Descendant{}
+	if err := c.do(req, &resp); err != nil {
 		return nil, err
 	}
 
