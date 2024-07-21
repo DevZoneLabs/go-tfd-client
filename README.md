@@ -72,17 +72,17 @@ The client covers the following API endpoints:
 
 - GetDescendantsMetadata(language LanguageCode) ([]models.Descendant, error)
 
-- GetWeaponsMetadata(language LanguageCode) (\*models.WeaponResponse, error)
+- GetWeaponsMetadata(language LanguageCode) ([]models.Weapon, error)
 
-- GetModulesMetadata(language LanguageCode) (\*models.ModuleResponse, error)
+- GetModulesMetadata(language LanguageCode) ([]models.Module, error)
 
-- GetReactorsMetadata(language LanguageCode) (\*models.ReactorResponse, error)
+- GetReactorsMetadata(language LanguageCode) ([]models.Reactor, error)
 
-- GetExternalComponentsMetadata(language LanguageCode) (\*models.ExternalComponentResponse, error)
+-  GetExternalComponentsMetadata(language LanguageCode) ([]models.ExternalComponent, error)
 
-- GetRewardsMetadata(language LanguageCode) (\*models.RewardResponse, error)
+- GetRewardsMetadata(language LanguageCode) ([]models.Reward, error)
 
-- GetStatsMetadata(language LanguageCode) (\*models.BaseStat, error)
+- GetStatsMetadata(language LanguageCode) ([]models.StatMeta, error)
 
 - GetVoidBattlesMetadata(language LanguageCode) (\*models.VoidBattleResponse, error)
 
