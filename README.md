@@ -48,7 +48,7 @@ func main() {
 
 ## Documentation
 
-Full documentation is available on [GoDocs](TODO)
+Full documentation is available on [GoDocs](https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-api)
 
 ## API Coverage
 
