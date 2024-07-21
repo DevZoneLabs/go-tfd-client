@@ -13,15 +13,15 @@ type Reward struct {
 
 // BattleZone represents information about a battlefield
 type BattleZone struct {
-	BattleZoneID   string       `json:"battle_zone_id"`
-	BattleZoneName string       `json:"battle_zone_name"`
-	Rewards        []RewardInfo `json:"reward"`
+	ID      string       `json:"battle_zone_id"`
+	Name    string       `json:"battle_zone_name"`
+	Rewards []RewardInfo `json:"reward"`
 }
 
 // RewardInfo represents reward rotation information
 type RewardInfo struct {
 	Rotation           int64  `json:"rotation"`
-	RewardType         string `json:"reward_type"`
+	Type               string `json:"reward_type"` // Reward Type
 	ReactorElementType string `json:"reactor_element_type"`
 	WeaponRoundsType   string `json:"weapon_rounds_type"`
 	ArcheType          string `json:"arche_type"`
