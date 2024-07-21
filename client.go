@@ -8,12 +8,15 @@ import (
 	"net/url"
 )
 
-const baseUrl string = "https://open.api.nexon.com"
+const (
+	baseUrl    string = "https://open.api.nexon.com"
+	authHeader string = "x-nxopen-api-key"
+)
 
 type Client struct {
 	key string
 
-	baseUrl string
+	baseUrl *url.URL
 
 	// Custom httpClient, defaults to http.DefaultClient
 	httpClient *http.Client
@@ -23,16 +26,18 @@ func NewClient(key string, httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
+
+	url, _ := url.Parse(baseUrl)
+
 	return &Client{
 		key:        key,
 		httpClient: httpClient,
-		baseUrl:    baseUrl,
+		baseUrl:    url,
 	}
 }
 
 func (c *Client) newRequest(method string, requiresAuthorization bool, path string, query *url.Values) (*http.Request, error) {
-	url, _ := url.Parse(baseUrl)
-	url = url.JoinPath(path)
+	url := c.baseUrl.JoinPath(path)
 	if query != nil {
 		url.RawQuery = query.Encode()
 	}
@@ -43,7 +48,7 @@ func (c *Client) newRequest(method string, requiresAuthorization bool, path stri
 	}
 
 	if requiresAuthorization {
-		req.Header.Add("x-nxopen-api-key", c.key)
+		req.Header.Add(authHeader, c.key)
 	}
 
 	req.Header.Add("Accept", "application/json")
