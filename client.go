@@ -15,7 +15,7 @@ type Client struct {
 
 	baseUrl string
 
-	// Custom http client defined by the developer
+	// Custom httpClient, defaults to http.DefaultClient
 	httpClient *http.Client
 }
 
@@ -30,28 +30,19 @@ func NewClient(key string, httpClient *http.Client) *Client {
 	}
 }
 
-// 1. Not all request need a auth header
-// 2. We have a base url, we just need the path
-// 3. We just need the query params since we don's send json.
-
-// Create a function called newRequest() extends Client and return an http.Request
-// Takes three parameters:
-// requiredAthroization bool
-// Path string
-// Query *url.Values
-
-func (c *Client) newRequest(method string, requiredAuthorization bool, path string, query *url.Values) (*http.Request, error) {
-
+func (c *Client) newRequest(method string, requiresAuthorization bool, path string, query *url.Values) (*http.Request, error) {
 	url, _ := url.Parse(baseUrl)
 	url = url.JoinPath(path)
-	url.RawQuery = query.Encode()
+	if query != nil {
+		url.RawQuery = query.Encode()
+	}
 
 	req, err := http.NewRequest(method, url.String(), nil)
 	if err != nil {
 		return nil, err
 	}
 
-	if requiredAuthorization {
+	if requiresAuthorization {
 		req.Header.Add("x-nxopen-api-key", c.key)
 	}
 
@@ -61,7 +52,6 @@ func (c *Client) newRequest(method string, requiredAuthorization bool, path stri
 }
 
 func (c *Client) do(req *http.Request, v interface{}) error {
-
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return err
