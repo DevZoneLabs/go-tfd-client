@@ -12,5 +12,5 @@ type VoidBattleResponse struct {
 
 type TitleResponse struct {
 	ID   string `json:"title_id"`
-	Name string `json"title_name"`
+	Name string `json:"title_name"`
 }
