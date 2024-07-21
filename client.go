@@ -10,7 +10,7 @@ import (
 
 const (
 	baseUrl    string = "https://open.api.nexon.com"
-	authHeader string = "x-nxopen-api-key"
+	authHeader string = "X-Nxopen-Api-Key"
 )
 
 type Client struct {

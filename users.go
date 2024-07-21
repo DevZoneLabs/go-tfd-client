@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/DevZone-Labs/tfd-api/models"
+	"github.com/DevZoneLabs/go-tfd-api/models"
 )
 
 const userBasePath string = "/tfd/v1"

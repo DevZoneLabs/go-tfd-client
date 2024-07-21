@@ -3,7 +3,7 @@ package tfd
 import (
 	"net/http"
 
-	"github.com/DevZone-Labs/tfd-api/models"
+	"github.com/DevZoneLabs/go-tfd-api/models"
 )
 
 // Retrieves descendant metadata
