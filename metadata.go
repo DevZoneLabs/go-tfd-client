@@ -3,7 +3,7 @@ package tfd
 import (
 	"net/http"
 
-	"github.com/DevZoneLabs/go-tfd-api/models"
+	"github.com/DevZoneLabs/go-tfd-client/models"
 )
 
 const metaBasePath string = "/static/tfd/meta/"

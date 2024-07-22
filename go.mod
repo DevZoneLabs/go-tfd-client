@@ -1,4 +1,6 @@
-module github.com/DevZoneLabs/go-tfd-api
+module github.com/DevZoneLabs/go-tfd-client
+
+retract v1.0
 
 go 1.22.2
 

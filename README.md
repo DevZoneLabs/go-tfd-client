@@ -19,7 +19,7 @@
 To install the library, use the following command:
 
 ```shell
-go get github.com/DevZoneLabs/go-tfd-api
+go get github.com/DevZoneLabs/go-tfd-client
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ import (
     "fmt"
     "log"
 
-    tfd "github.com/DevZoneLabs/go-tfd-api"
+    tfd "github.com/DevZoneLabs/go-tfd-client"
 )
 
 func main() {
@@ -52,7 +52,7 @@ func main() {
 
 ## Documentation
 
-Full documentation is available on [GoDocs](https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-api)
+Full documentation is available on [GoDocs](https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-client)
 
 ## API Coverage
 
