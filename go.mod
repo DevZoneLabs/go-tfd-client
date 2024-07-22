@@ -1,4 +1,4 @@
-module github.com/DevZoneLabs/go-tfd-api
+module github.com/DevZoneLabs/go-tfd-client
 
 go 1.22.2
 
