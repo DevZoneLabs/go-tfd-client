@@ -86,8 +86,5 @@ func (c *Client) do(req *http.Request, v interface{}) error {
 		panic(err)
 	}
 
-	fmt.Println("Response Body:")
-	fmt.Println(string(bod[0]))
-
 	return nil
 }
