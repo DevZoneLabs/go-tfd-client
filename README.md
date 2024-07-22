@@ -2,7 +2,7 @@
 
 ## Overview
 
-`tfd` is a Go client library for interacting with "The First Descendant" game API. This client wraps all the API endpoints listed in the [official API](https://openapi.nexon.com/game/tfd/?id=21) documentation, providing an easy-to-use interface for Go developers to integrate with the game's services.
+`go-tfd-api` is a Go client library for interacting with "The First Descendant" game API. This client wraps all the API endpoints listed in the [NEXON Open API](https://openapi.nexon.com/game/tfd/?id=21) documentation, providing an easy-to-use interface for Go developers to integrate with the game's services.
 
 ## Features
 
@@ -15,7 +15,7 @@
 To install the library, use the following command:
 
 ```shell
-go get github.com/DevZoneLabs/go-tfd-api@latest
+go get github.com/DevZoneLabs/go-tfd-api
 ```
 
 ## Usage
