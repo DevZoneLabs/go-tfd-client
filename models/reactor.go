@@ -14,11 +14,11 @@ type Reactor struct {
 
 // SkillPower represents skill power by level information
 type SkillPower struct {
-	Level            int64             `json:"level"`
-	AtkPower         float64           `json:"skill_atk_power"`
-	SubSkillAtkPower float64           `json:"sub_skill_atk_power"`
-	PowerCoeff       []SkillPowerBoost `json:"skill_power_coefficient"` // Skill Power Coefficient
-	EnchantEffect    []Enchantment     `json:"enchant_effect"`
+	Level            int64               `json:"level"`
+	AtkPower         float64             `json:"skill_atk_power"`
+	SubSkillAtkPower float64             `json:"sub_skill_atk_power"`
+	PowerCoefficient []SkillPowerBoost   `json:"skill_power_coefficient"`
+	EnchantEffect    []EnchantmentEffect `json:"enchant_effect"`
 }
 
 // SkillPowerBoost represents skill power boost ratio information
@@ -28,7 +28,7 @@ type SkillPowerBoost struct {
 }
 
 // Enchantment represents enchantment effect by level information
-type Enchantment struct {
+type EnchantmentEffect struct {
 	Level    int64   `json:"enchant_level"`
 	StatType string  `json:"stat_type"`
 	Value    float64 `json:"value"`
