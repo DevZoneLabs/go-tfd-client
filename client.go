@@ -113,11 +113,13 @@ func (c *Client) do(req *http.Request, v interface{}) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			return err
+		var errMsg ErrorMessage
+		if err := json.NewDecoder(resp.Body).Decode(&errMsg); err != nil {
+			// If we cannot decode the error message, return the raw body as a string
+			body, _ := io.ReadAll(resp.Body)
+			return fmt.Errorf("HTTP %d: %s", resp.StatusCode, body)
 		}
-		return fmt.Errorf("HTTP %d: %s", resp.StatusCode, body)
+		return &errMsg
 	}
 
 	err = json.NewDecoder(resp.Body).Decode(v)

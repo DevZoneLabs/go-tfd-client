@@ -42,6 +42,16 @@ func (c *Client) GetWeaponsMetadata(language LanguageCode) ([]models.Weapon, err
 	return resp, nil
 }
 
+// GetExternalComponentsMetadata retrieves metadata for external components in the specified language.
+// It returns a slice of Weapon models and an error if the request fails.
+func (c *Client) GetExternalComponentsMetadata(language LanguageCode) ([]models.ExternalComponent, error) {
+	var resp []models.ExternalComponent
+	if err := c.getMetadata(language, "externalComponents", &resp); err != nil {
+		return nil, err
+	}
+	return resp, nil
+}
+
 // GetModulesMetadata retrieves metadata for modules in the specified language.
 // It returns a slice of Module models and an error if the request fails.
 func (c *Client) GetModulesMetadata(language LanguageCode) ([]models.Module, error) {

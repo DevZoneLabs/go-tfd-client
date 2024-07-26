@@ -14,8 +14,8 @@ type DescendantStats struct {
 }
 
 type StatDetail struct {
-	Type  string `json:"type"`
-	Value string `json:"value"`
+	Type  string  `json:"stat_type"`
+	Value float64 `json:"stat_value"`
 }
 
 type Skill struct {

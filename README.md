@@ -32,21 +32,29 @@ package main
 import (
     "fmt"
     "log"
+    "net/http"
 
     tfd "github.com/DevZoneLabs/go-tfd-client"
 )
 
 func main() {
+    // Initialize the client without an API key
+    client := tfd.NewClient()
 
-    client := tfd.NewClient("YOUR_API_KEY", nil)
+    // Set your API key using SetAccessKey
+    client.SetAccessKey("YOUR_API_KEY")
+
+    // Optionally, you can set a custom HTTP client
+    customHTTPClient := &http.Client{}
+    client.CustomHTTPClient(customHTTPClient)
 
     // Example: Get AccountIdentifier
     accIdentifier, err := client.GetAccountIdentifier("PLAYER_ID")
     if err != nil {
-        log.Fatal("Error fetching player profile: %v", err)
+        log.Fatalf("Error fetching account identifier: %v", err)
     }
 
-    fmt.Printf("AccountIdentifier: %s\v", accIdentifier.OOUID)
+    fmt.Printf("Account Identifier: %s\n", accIdentifier.OUID)
 }
 ```
 
