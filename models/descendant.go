@@ -9,8 +9,13 @@ type Descendant struct {
 }
 
 type DescendantStats struct {
-	Level   int64      `json:"level"`
-	Details []BaseStat `json:"stat_detail"`
+	Level   int64        `json:"level"`
+	Details []StatDetail `json:"stat_detail"`
+}
+
+type StatDetail struct {
+	Type  string `json:"type"`
+	Value string `json:"value"`
 }
 
 type Skill struct {
