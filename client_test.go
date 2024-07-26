@@ -9,61 +9,76 @@ import (
 )
 
 func TestClient(t *testing.T) {
-	key := "test-key"
 
-	client := NewClient(key, nil)
+	client := NewClient()
 
-	// Assert key is passed
-	assert.Equal(t, key, client.key, "key should be assigned")
+	// Assert key is empty
+	assert.Empty(t, client.key, "key should be empty")
 
 	// Assert default httpClient is assigned
 	assert.Equal(t, http.DefaultClient, client.httpClient, "httpClient should be defined")
 
 	// Assert baseUrl is assigned
-	expectedBaseUrl, _ := url.Parse(baseUrl)
-	assert.Equal(t, expectedBaseUrl, client.baseUrl, "c.baseUrl should be defined")
+	assert.Equal(t, baseUrl, client.baseUrl, "c.baseUrl should be defined")
 }
 
 func TestNewRequest(t *testing.T) {
 	key := "test-key"
-	client := NewClient(key, nil)
+	client := NewClient()
+	client.SetAccessKey(key)
 
 	method := http.MethodGet
-
 	testPath := "/testPath"
-	// Request with No Authroization Headers
-	reqNoAuth, err := client.newRequest(method, false, testPath, nil)
-	if err != nil {
-		t.Errorf("should not return an error when creating a request, error %v", err)
+	testQuery := url.Values{"user_name": {"test_user"}}
+
+	tests := []struct {
+		name               string
+		requiresAuth       bool
+		query              *url.Values
+		expectedHeader     bool
+		expectedHeaderValue string
+		expectedURL        string
+	}{
+		{
+			name:               "Request without authorization",
+			requiresAuth:       false,
+			query:              nil,
+			expectedHeader:     false,
+			expectedHeaderValue: "",
+			expectedURL:        baseUrl + testPath,
+		},
+		{
+			name:               "Request with authorization",
+			requiresAuth:       true,
+			query:              &testQuery,
+			expectedHeader:     true,
+			expectedHeaderValue: key,
+			expectedURL:        baseUrl + testPath + "?" + testQuery.Encode(),
+		},
 	}
 
-	// Assert the method is http.MethodGet
-	assert.Equal(t, reqNoAuth.Method, method, "method should be a http.MethodGet")
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req, err := client.newRequest(method, tt.requiresAuth, testPath, tt.query)
+			if err != nil {
+				t.Fatalf("unexpected error: %v", err)
+			}
 
-	// Should not have auth Headers
-	assert.NotContains(t, reqNoAuth.Header, authHeader, "Should not have the authHeader")
+			// Assert the method
+			assert.Equal(t, method, req.Method, "expected method to be http.MethodGet")
 
-	// Url Should be BaseUrl + testPath
-	assert.Equal(t, reqNoAuth.URL.String(), baseUrl+testPath)
+			// Assert the presence or absence of the authorization header
+			if tt.expectedHeader {
+				assert.Contains(t, req.Header, authHeader, "expected request to have authorization header")
+				assert.Equal(t, tt.expectedHeaderValue, req.Header.Get(authHeader), "expected authorization header value")
+			} else {
+				assert.NotContains(t, req.Header, authHeader, "expected request to not have authorization header")
+			}
 
-	// Request with Authorization
-
-	testQuery := url.Values{
-		"user_name": {"test_user"},
+			// Assert the URL including query parameters
+			assert.Equal(t, tt.expectedURL, req.URL.String(), "expected URL to match including query parameters")
+		})
 	}
-
-	reqWithAuth, err := client.newRequest(method, true, testPath, &testQuery)
-	if err != nil {
-		t.Errorf("should not return an error when creating a request, error %v", err)
-	}
-
-	// Authorization Requirements
-	assert.Contains(t, reqWithAuth.Header, authHeader, "the request object should have the authHeader")
-
-	assert.Equal(t, reqWithAuth.Header.Get(authHeader), key, "client key should be passed in authorization header")
-
-	// Query should match
-	assert.Equal(t, reqWithAuth.URL.RawQuery, testQuery.Encode(), "query should have been added to the request object")
 }
 
 
