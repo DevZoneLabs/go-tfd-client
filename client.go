@@ -18,19 +18,20 @@ const (
 	authHeader string = "X-Nxopen-Api-Key"
 )
 
-// Client represents a client for interacting with the Nexus OpenAPI.
+// Client represents a client for The First Descendant's API.
 type Client struct {
 	// Nexus OpenAPIKey
 	key string
 
-	// baseUrl is the base URL for the Nexus OpenAPI.
-	// It is initialized to the value of the baseUrl constant.
+	// baseUrl is the base URL for The First Descendant's API.
 	baseUrl string
 
+	// httpClient is the HTTP client used to make requests.
 	httpClient *http.Client
 }
 
-// NewClient create and returns a new instance of the Client struct.
+
+// NewClient create and returns a new instance of the TFD Client
 func NewClient() *Client {
 	return &Client{
 		baseUrl:    baseUrl,

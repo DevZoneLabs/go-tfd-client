@@ -10,26 +10,20 @@ import (
 // Period represents the time period for the data.
 type Period string
 
-const (
-	// SevenDays represents the last 7 days period.
-	SevenDays Period = "0"
-
-	// ThirtyDays represents the last 30 days period.
-	ThirtyDays Period = "1"
-
-	// AllTime represents all-time period.
-	AllTime Period = "2"
-)
-
 // Periods provides a set of predefined Period constants.
 var Periods = struct {
-	SevenDays  Period
+	// Last 7 days period.
+	SevenDays Period
+
+	//  Last 30 days period.
 	ThirtyDays Period
-	AllTime    Period
+
+	// All-time period.
+	AllTime Period
 }{
-	SevenDays:  SevenDays,
-	ThirtyDays: ThirtyDays,
-	AllTime:    AllTime,
+	SevenDays:  "0",
+	ThirtyDays: "1",
+	AllTime:    "2",
 }
 
 type ModuleRecommendationOpts struct {

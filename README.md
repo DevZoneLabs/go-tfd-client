@@ -66,7 +66,7 @@ Full documentation is available on [GoDocs](https://pkg.go.dev/github.com/DevZon
 
 The client covers the following API endpoints:
 
-#### Users
+#### Account
 
 - GetAccountIdentifier(userName string) (\*models.AccountIdentifier, error)
 
