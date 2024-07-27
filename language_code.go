@@ -18,7 +18,3 @@ var LanguageCodes = struct {
 }{
 	"ko", "en", "de", "fr", "ja", "zh-CN", "zh-TW", "it", "pl", "pt", "ru", "es",
 }
-
-func (l *LanguageCode) String() string {
-	return string(*l)
-}
