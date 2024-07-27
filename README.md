@@ -19,7 +19,7 @@
 To install the library, use the following command:
 
 ```shell
-go get github.com/DevZoneLabs/go-tfd-client
+go get github.com/DevZoneLabs/go-tfd-client/v2
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ The client covers the following API endpoints:
 
 - GetAccountIdentifier(userName string) (\*models.AccountIdentifier, error)
 
-- GetBasicInformation(ouid string) (\*models.UserBasic, error)
+- GetUserInfo(ouid string) (\*UserBasic, error)
 
 - GetUserDescendant(ouid string) (\*models.UserDescendant, error)
 
