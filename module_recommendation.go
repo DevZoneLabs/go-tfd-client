@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/DevZoneLabs/go-tfd-client/models"
+	"github.com/DevZoneLabs/go-tfd-client/v2/models"
 )
 
 // Period represents the time period for the data.
