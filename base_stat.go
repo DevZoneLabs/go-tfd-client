@@ -1,4 +1,4 @@
-package models
+package tfd
 
 type BaseStat struct {
 	ID    string  `json:"stat_id"`
