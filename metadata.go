@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/DevZoneLabs/go-tfd-client/models"
+	"github.com/DevZoneLabs/go-tfd-client/v2/models"
 )
 
 // Metadata paths
