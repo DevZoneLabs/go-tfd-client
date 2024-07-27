@@ -1,4 +1,4 @@
-module github.com/DevZoneLabs/go-tfd-client
+module github.com/DevZoneLabs/go-tfd-client/v2
 
 retract v1.1.0
 
