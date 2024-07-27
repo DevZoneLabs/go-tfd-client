@@ -60,7 +60,7 @@ func main() {
 
 ## Documentation
 
-Full documentation is available on [GoDocs]([https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-client](https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-client/v2)
+Full documentation is available on [GoDocs v2](https://pkg.go.dev/github.com/DevZoneLabs/go-tfd-client/v2)
 
 ## API Coverage
 
